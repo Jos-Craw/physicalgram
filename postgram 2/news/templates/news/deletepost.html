@@ -1,0 +1,15 @@
+{% extends "layout/basic.html" %}
+
+{% load bootstrap4 %}
+{% block title %}Delete post{% endblock %}
+{% block content %}
+<h2>Delete post</h2>
+        <div class="col">
+            <p>{{ post.content }}</p>
+            <p class="text-right font-italic">Post created {{ post.pubdate|date:"d M Y H:i" }}</p>
+        </div>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
+{% endblock %}
