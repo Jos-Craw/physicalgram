@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import Post, AdvUser
+from .models import Post, AdvUser, Comment
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
-from .forms import PostForm, ChangeUserInfoForm, RegisterUserForm
+from .forms import PostForm, ChangeUserInfoForm, RegisterUserForm, CommentForm
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -18,6 +18,18 @@ def index(request):
 	posts = Post.objects.all()
 	return render(request, 'news/index.html',{'posts': posts})
 
+	initial= {'post':post.pk}
+	initial['author'] = request.user.username
+	form_class = CommentForm
+	form = form_class(initial=initial)
+	if request.method == 'POST':
+		c_form = form_class(request.POST)
+		if c_form.is_valid():
+			c_form.save()
+		else:
+			form = c_form
+	return render(request, 'news/index.html',{'post':post,'comments':comments,'form':form})
+
 @login_required
 def profile(request):
 	posts = Post.objects.filter(author=request.user.pk)
@@ -25,10 +37,20 @@ def profile(request):
 	return render(request,'news/profile.html',context)
 
 @login_required
-def profile_post_detail(request, pk):
+def detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    context = {'post': post}
-    return render(request, 'news/profile_bb_detail.html', context)
+    comments = Comment.objects.filter(post=pk)
+    initial= {'post':post.pk}
+    initial['author'] = request.user.username
+    form_class = CommentForm
+    form = form_class(initial=initial)
+    if request.method == 'POST' or request.FILES:
+    	c_form = form_class(request.POST,request.FILES)
+    	if c_form.is_valid():
+    		c_form.save()
+    	else:
+    		form = c_form
+    return render(request, 'news/detail.html',{'post':post,'comments':comments,'form':form})
 
 @login_required
 def create(request):

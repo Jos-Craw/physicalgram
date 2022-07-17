@@ -4,23 +4,12 @@
 {% if user.is_authenticated %}
 {% if posts %}
 {% for post in posts %}
-<div>
+	<div>
 	<p class="p">
 	<a class="small">
-	{{ post.author }} </a><a class="small">{{ post.pubdate|date:"d M Y H:i" }}</a><br>
-	{{ post.content|urlize }}<br>
-	{% if post.image %}
-	<img src="{{ post.image.url }}" class='main-image'><br>
-	{% endif %}
-	{% if post.video %}
-	<video src="{{ post.video.url }}" width="300" controls="controls"></video><br>
-	{% endif %}
-	{% if post.audio %}
-	<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
-	{% endif %}
-	{% if post.file %}
-	<a href='{{ post.file.url }}' download="">{{ post.file.url }}</a><br>
-	{% endif %}
+	<a href="{% url 'news:detail' pk=post.pk %}" class="sbtn">
+	{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}<br>
+	{{ post.content}}<br></a>
 	</p>
 </div>
 {% endfor %}

@@ -1,11 +1,12 @@
 from django.urls import path
 from django.contrib.auth.views import LoginView
-from .views import index, about, create, good, POSTLoginView, profile, POSTLogoutView, ChangeUserInfoView, POSTChangeView, RegisterUserView, RegisterDoneView, user_activate, DeleteUserView, editpost,deletepost, profile_post_detail
+from .views import index, about, create, good, POSTLoginView, profile, POSTLogoutView, ChangeUserInfoView, POSTChangeView, RegisterUserView, RegisterDoneView, user_activate, DeleteUserView, editpost,deletepost, detail
 
 app_name='news'
 
 urlpatterns = [
 	path('', index, name='index'),
+	path('<int:pk>/', detail,name='detail'),
 	path('accounts/profile/add/',create,name='add'),
 	path('good/',good,name='good'),
 	path('about/',about,name='about'),
@@ -16,7 +17,6 @@ urlpatterns = [
 	path('accounts/logout/', POSTLogoutView.as_view(),name='logout'),
 	path('accounts/profile/delete', DeleteUserView.as_view(),name='profile_delete'),
 	path('accounts/profile/', profile,name='profile'),
-	path('accounts/profile/<int:pk>/', profile_post_detail,name='profile_post_detail'),
 	path('accounts/profile/change', ChangeUserInfoView.as_view(),name='profile_change'),
 	path('accounts/profile/editpost/<int:pk>/', editpost ,name='edit_post'),
 	path('accounts/profile/deletepost/<int:pk>/', deletepost ,name='delete_post'),

@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Post, AdvUser, user_registrated
+from .models import Post, AdvUser, user_registrated, Comment
 from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
 
@@ -9,6 +9,12 @@ class PostForm(ModelForm):
 		model = Post
 		fields = '__all__'
 		widgets = {'author':forms.HiddenInput}
+
+class CommentForm(ModelForm):
+	class Meta:
+		model = Comment
+		fields = '__all__'
+		widgets = {'post':forms.HiddenInput}
 
 class ChangeUserInfoForm(forms.ModelForm):
 	email = forms.EmailField(required=True,label='Email')

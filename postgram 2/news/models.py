@@ -26,6 +26,21 @@ class Post(models.Model):
         verbose_name = 'Post'
         ordering = ['-pubdate']
 
+class Comment(models.Model):
+	post = models.ForeignKey(Post,on_delete=models.CASCADE,null=True)
+	content = models.TextField(null=True, blank=False)
+	author = models.CharField(max_length=30)
+	pubdate = models.DateTimeField(auto_now_add=True, db_index=True)
+	image = models.ImageField(upload_to='image/%Y/%m/%d/',blank=True,null=True)
+	file = models.FileField(upload_to='files/%Y/%m/%d/',blank=True,null=True)
+	video = models.FileField(upload_to='video/%Y/%m/%d/',blank=True,null=True)
+	audio = models.FileField(upload_to='audio/%Y/%m/%d/',blank=True,null=True)
+
+	class Meta:
+		verbose_name_plural = 'Comments'
+		verbose_name = 'Comment'
+		ordering = ['pubdate']
+
 
 user_registrated = Signal(['instance'])
 

@@ -1,0 +1,35 @@
+{% extends "layout/basic.html" %}
+
+{% block content %}
+<div>
+	<p class="p">
+		<a href="{% url 'news:edit_post' pk=post.pk %}" class="sbtn">Edit</a>
+		<a href="{% url 'news:delete_post' pk=post.pk %}" class="sbtn">Delete</a><br>
+		{{ post.author }} <a class="small">{{ post.pubdate|date:"d M Y H:i" }}</a><br>
+		{{ post.content|urlize }}<br>
+		{% if post.image %}
+			<img src="{{ post.image.url }}" class='main-image'><br>
+		{% endif %}
+		{% if post.video %}
+			<video src="{{ post.video.url }}" width="300" controls="controls"></video><br>
+		{% endif %}
+		{% if post.audio %}
+			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
+		{% endif %}
+		{% if post.file %}
+			<a href='{{ post.file.url }}' download="">{{ post.file.url }}</a><br>
+		{% endif %}
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Add comment</button>
+		</form>
+		{% if comments %}
+			{% for comment in comments %}
+				{{ comment.author }} {{ comment.pubdate|date:"d M Y H:i" }}<br>
+				{{ comment.content|urlize }}<br>
+			{% endfor %}
+		{% endif %}
+	</p>
+</div>
+{% endblock %}
