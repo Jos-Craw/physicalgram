@@ -6,10 +6,21 @@
 {% for post in posts %}
 	<div>
 	<p class="p">
-	<a class="small">
-	<a href="{% url 'news:detail' pk=post.pk %}" class="sbtn">
 	{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}<br>
-	{{ post.content}}<br></a>
+	{{ post.content}}<br>
+	{% if post.image %}
+			<img src="{{ post.image.url }}" class='sub-image'><br>
+		{% endif %}
+		{% if post.video %}
+			<video src="{{ post.video.url }}" width="120" controls="controls"></video><br>
+		{% endif %}
+		{% if post.audio %}
+			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
+		{% endif %}
+		{% if post.file %}
+			<a href='{{ post.file.url }}' download="">{{ post.file.url }}</a><br>
+		{% endif %}
+		<a href="{% url 'news:detail' pk=post.pk %}" class="sbtn">More</a><br>
 	</p>
 </div>
 {% endfor %}

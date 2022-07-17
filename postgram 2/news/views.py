@@ -99,7 +99,7 @@ class POSTLoginView(LoginView):
 	template_name='news/login.html'
 
 class POSTLogoutView(LoginRequiredMixin, LogoutView):
-	template_name='news/index.html'
+	template_name='news/logout.html'
 
 class POSTChangeView(SuccessMessageMixin,LoginRequiredMixin,PasswordChangeView):
 	template_name = 'news/password_change.html'

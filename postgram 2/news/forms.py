@@ -14,7 +14,7 @@ class CommentForm(ModelForm):
 	class Meta:
 		model = Comment
 		fields = '__all__'
-		widgets = {'post':forms.HiddenInput}
+		widgets = {'post':forms.HiddenInput,'author':forms.HiddenInput}
 
 class ChangeUserInfoForm(forms.ModelForm):
 	email = forms.EmailField(required=True,label='Email')

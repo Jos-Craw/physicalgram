@@ -11,14 +11,27 @@
 	<a href="{% url 'news:password_change' %}"class="sbtn">Edit password</a>
 	<a href="{% url 'news:profile_delete' %}"class="sbtn">Delete</a>
 	<h2>Your post</h2>
+</div>
+<div>
 	{% for post in posts %}
 		<p class="p">
-		<a class="small">
-		<a href="{% url 'news:detail' pk=post.pk %}" class="sbtn">
 		{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}<br>
-		{{ post.content}}</a><br>
+	{{ post.content}}<br>
+	{% if post.image %}
+			<img src="{{ post.image.url }}" class='sub-image'><br>
+		{% endif %}
+		{% if post.video %}
+			<video src="{{ post.video.url }}" width="120" controls="controls"></video><br>
+		{% endif %}
+		{% if post.audio %}
+			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
+		{% endif %}
+		{% if post.file %}
+			<a href='{{ post.file.url }}' download="">{{ post.file.url }}</a><br>
+		{% endif %}
+		<a href="{% url 'news:detail' pk=post.pk %}" class="sbtn">More</a>
 		<a href="{% url 'news:edit_post' pk=post.pk %}" class="sbtn">Edit</a>
-		<a href="{% url 'news:delete_post' pk=post.pk %}" class="sbtn">Delete</a></a>
+		<a href="{% url 'news:delete_post' pk=post.pk %}" class="sbtn">Delete</a>
 	   	</p>
 	{% endfor %}        
 </div>

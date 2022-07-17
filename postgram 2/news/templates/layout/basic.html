@@ -5,12 +5,12 @@
 	<meta http-equiv="Content-Type"
 		content="text/html; charset=utf-8">	
 	<link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}">	
-	<title>{% block title %}Physicalgram{% endblock %}</title>
+	<title>{% block title %}Physicalgram V2{% endblock %}</title>
 </head>
 <body>
 	<div class="c">
 		<header>
-			<h1><a href="{% url 'news:index' %} " class="sbtnn">Physicalgram</a></h1>
+			<h1><a href="{% url 'news:index' %} " class="sbtnn">Physicalgram V2</a></h1>
 		</header>
 		<nav>
 			{% if user.is_authenticated %}
