@@ -6,9 +6,9 @@
 
 {% block content %}
 	<h2>Your info</h2>
-	<form method="post">
-		{% csrf_token %}
-		{% bootstrap_form form layout='horizontal' %}<br>
-		{% buttons submit='Save' %}{% endbuttons %}
-	</form>
+	<form method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Edit</button>
+</form>
 {% endblock %}

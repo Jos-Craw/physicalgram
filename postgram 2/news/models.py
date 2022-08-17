@@ -7,6 +7,7 @@ from .utilities import send_activation_notification
 class AdvUser(AbstractUser):
     is_activated = models.BooleanField(default=True, db_index=True,
                                        verbose_name='Прошел активацию?')
+    avatar = models.ImageField(null=True, blank=True, upload_to="image/profile/")
 
     class Meta(AbstractUser.Meta):
         pass

@@ -6,6 +6,11 @@
 {% for post in posts %}
 	<div>
 	<p class="p">
+	{% if post.author.avatar %}
+      <img class="avatar" src="{{ post.author.avatar.url }}" height=50 width=50>
+    {% else %}
+      <img src="\static\news\user.png" height=50 width=50>
+    {% endif %}
 	{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}<br>
 	{{ post.content}}<br>
 	{% if post.image %}

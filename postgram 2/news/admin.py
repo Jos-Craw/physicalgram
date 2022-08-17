@@ -23,8 +23,8 @@ admin.site.register(Comment, CommentAdmin)
 
 class AdvUserAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'is_activated', 'date_joined')
-    search_fields = ('username', 'email', 'first_name', 'last_name')
-    fields = (('username','email'), ('first_name', 'last_name'),
+    search_fields = ('username','avatar', 'email', 'first_name', 'last_name')
+    fields = (('username','email','avatar'), ('first_name', 'last_name'),
               ('is_active', 'is_activated'), ('is_staff', 'is_superuser'),
               'groups', 'user_permissions', ('last_login', 'date_joined'))
     readonly_fields = ('last_login', 'date_joined')

@@ -21,7 +21,7 @@ class ChangeUserInfoForm(forms.ModelForm):
 
 	class Meta:
 		model = AdvUser
-		fields = ('username','email','first_name','last_name')
+		fields = ('username','avatar','email','first_name','last_name')
 
 class RegisterUserForm(forms.ModelForm):
 	email = forms.EmailField(required=True,label='Email')
@@ -57,6 +57,6 @@ class RegisterUserForm(forms.ModelForm):
 
 	class Meta:
 		model = AdvUser
-		fields = ('username','email','password1','password2',
+		fields = ('username','avatar','email','password1','password2',
 			'first_name','last_name')
 

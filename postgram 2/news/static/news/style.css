@@ -152,3 +152,7 @@ img.main-image{
 img.sub-image{
   width: 30%;
 }
+
+img.avatar{
+  border-radius: 100px;
+}
