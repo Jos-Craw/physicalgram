@@ -3,12 +3,10 @@
 {% block content %}
 <div>
 	<p class="p">
-		<a href="{% url 'news:edit_post' pk=post.pk %}" class="sbtn">Edit</a>
-		<a href="{% url 'news:delete_post' pk=post.pk %}" class="sbtn">Delete</a><br>
 		{{ post.author }} <a class="small">{{ post.pubdate|date:"d M Y H:i" }}</a><br>
 		{{ post.content|urlize }}<br>
 		{% if post.image %}
-			<img src="{{ post.image.url }}" class='main-image'><br>
+			<img src="{{ post.image.url }}" class='main-image'>
 		{% endif %}
 		{% if post.video %}
 			<video src="{{ post.video.url }}" width="50%" controls="controls"></video><br>

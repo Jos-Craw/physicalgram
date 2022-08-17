@@ -52,6 +52,7 @@ def detail(request, pk):
     		form = c_form
     return render(request, 'news/detail.html',{'post':post,'comments':comments,'form':form})
 
+
 @login_required
 def create(request):
 	if request.method == 'POST' or request.FILES:
@@ -164,3 +165,4 @@ def user_activate(request,sign):
 		user.is_activated = True
 		user.save()
 	return render(request, template)
+

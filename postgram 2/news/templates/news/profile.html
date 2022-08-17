@@ -24,7 +24,7 @@
 		{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}<br>
 	{{ post.content}}<br>
 	{% if post.image %}
-			<img src="{{ post.image.url }}" class='sub-image'><br>
+			<img src="{{ post.image.url }}" class='sub-image'>
 		{% endif %}
 		{% if post.video %}
 			<video src="{{ post.video.url }}" width="30%" controls="controls"></video><br>
