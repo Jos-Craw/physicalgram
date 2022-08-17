@@ -17,7 +17,7 @@
 			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
 		{% endif %}
 		{% if post.file %}
-			<a href='{{ post.file.url }}' download="">{{ post.file.url }}</a><br>
+			<a href='{{ post.file.url }}' >{{ post.file.url }}</a><br>
 		{% endif %}
 		<form method="post">
 			{% csrf_token %}
