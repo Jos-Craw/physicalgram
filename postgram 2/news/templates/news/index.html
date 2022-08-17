@@ -18,7 +18,7 @@
 			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
 		{% endif %}
 		{% if post.file %}
-			<a href='{{ post.file.url }}' download="">{{ post.file.url }}</a><br>
+			<a href='{{ post.file.url }}' target="-blank">{{ post.file.url }}</a><br>
 		{% endif %}
 		<a href="{% url 'news:detail' pk=post.pk %}" class="sbtn">More</a><br>
 	</p>
