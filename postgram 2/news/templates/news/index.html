@@ -4,13 +4,15 @@
 {% if user.is_authenticated %}
 {% if posts %}
 {% for post in posts %}
-	<div class="post">
-	{% if post.author.avatar %}
-      <img src="{{ post.author.avatar.url }}" height=50 width=50>
-    {% else %}
-      <img src="\static\news\user.png" height=50 width=50>
-    {% endif %}
-	{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}<br>
+	<div>
+		<div class="post-author">
+			{% if post.author.avatar %}
+		      <img class="avatar" src="{{ post.author.avatar.url }}">
+		    {% else %}
+		      <img class="avatar" src="\static\news\user.png">
+		    {% endif %}
+			{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}
+		</div>
 	{{ post.content}}<br>
 	{% if post.image %}
 			<img src="{{ post.image.url }}" class="media">

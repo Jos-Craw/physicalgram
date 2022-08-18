@@ -11,17 +11,27 @@ header{
 }
 .nav_right{
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
+  
 }
 section{
   display: flex;
   flex-direction: column;
 }
 .post{
-  display: flex;
-  justify-content: center;
+  margin-left: 20%;
+  margin-right: 30%; 
 }
 .media{
   width: 30%;
+}
+.avatar{
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  padding: 10px;
+}
+.post-author{
+  display: flex;
+  align-items: center;
 }
