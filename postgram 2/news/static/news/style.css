@@ -1,158 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
 body{
-    background: linear-gradient(-45deg, #000000, #a4036f,#420c76, #16e0bd);
-    background-size: 300% 300%;
-    animation: gradient 15s ease infinite;
-    background-attachment: fixed;
+  background: #FFF9EA;
 }
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-header h1{
-  font-family: 'Playfair Display SC', serif;
-  font-size: 40px;
-  text-align: center; 
-}
-nav {
+header{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+.nav_left{
+  display: flex;
+  flex-direction: column;
+}
+.nav_right{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 section{
-  min-height: 100vh;
-  font-family: 'Tahoma', serif;
-}
-.p{
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-p{
-  font-size: 15px;
-  font-weight: 700; 
-  margin-right: 8px;
-  margin-left: 8px;
-  border-radius: 15px;
-  padding: 8px 8px 8px 8px;
-}
-.sbtn{
-   text-decoration: none;
-   display: inline-flex;
-   justify-content: space-between;
-   color: rgb(0,0,0);
-   font-family: 'Tahoma', serif;
-   font-weight: 600;
-   font-size: 13px;
-   border-radius: 15px;
-   padding: 4px 4px 4px 4px;
-}
-.sbtnn{
-  text-decoration: none;
-  color: black;
-}
-.sbtn:hover{
-  background-color: rgb(223, 223, 226);
-}
-.small{
-  font-size: 13px;
-}
-.c{
-  background-color:rgb(244, 242, 243);
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  margin-left: 350px;
-  margin-right: 350px;
-  padding-bottom: 1px;
-  margin-bottom: 35px;
-}
-.add{
-  margin-left: 8px;
-  margin-right : 8px;
-}
-.addd{
-  margin: 0 auto;
-  display: block;
-  font-size: 30px;
-}
-.link{
-  text-decoration: none;
-  display: inline-flex;
-  justify-content: center;
-  color: rgb(0,0,0);
-  font-family: 'Tahoma', serif;
-  font-weight: 700;
-  font-size: 15px;
-  border-radius: 15px;
-  padding: 4px 4px 4px 4px;
-  margin-left: 15px;
-}
-.link:hover{
-  background-color: rgb(223, 223, 226);
-}
-h2{
-  text-align: center; 
-}
-form{
-  margin-left: 8px;
-  font-weight: 700; 
-  font-size: 15px;
-}
-.login{
-    text-align: center; 
-    font-size: 20px;
-}
-
-#Library1 {
-  height: 50px;
-  width: 50px;
-  background-image:url('vk.png');
-  background-size: cover;
-}
-
-#Library2 {
-  height: 50px;
-  width: 50px;
-  background-image:url('insta.png');
-  background-size: cover;
-}
-#Library3 {
-  height: 50px;
-  width: 50px;
-  background-image:url('Discord-Logo-Color.png');
-  background-size: cover;
-}
-#Library4 {
-  height: 50px;
-  width: 50px;
-  background-image:url('LI-In-Bug.png');
-  background-size: cover;
-}
-#Library5 {
-  height: 50px;
-  width: 50px;
-  background-image:url('Logo.png');
-  background-size: cover;
-}
-.soc{
   display: flex;
-  justify-content: space-around;
-
+  flex-direction: column;
 }
-
-img.main-image{
-  width: 50%;
+.post{
+  display: flex;
+  justify-content: center;
 }
-img.sub-image{
+.media{
   width: 30%;
-}
-
-img.avatar{
-  border-radius: 100px;
 }
