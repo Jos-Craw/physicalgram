@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.dispatch import Signal
 from .utilities import send_activation_notification
+import os
 
 
 class AdvUser(AbstractUser):
@@ -26,6 +27,10 @@ class Post(models.Model):
         verbose_name_plural = 'Posts'
         verbose_name = 'Post'
         ordering = ['-pubdate']
+
+    def filename(self):
+        return os.path.basename(self.file.name)
+
 
 class Comment(models.Model):
 	post = models.ForeignKey(Post,on_delete=models.CASCADE,null=True)

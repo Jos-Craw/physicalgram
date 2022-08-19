@@ -4,29 +4,32 @@
 {% if user.is_authenticated %}
 {% if posts %}
 {% for post in posts %}
-	<div>
+	<div class="post">
 		<div class="post-author">
 			{% if post.author.avatar %}
-		      <img class="avatar" src="{{ post.author.avatar.url }}">
+		      <img class="avatar-small" src="{{ post.author.avatar.url }}">
 		    {% else %}
-		      <img class="avatar" src="\static\news\user.png">
+		      <img class="avatar-small" src="\static\news\user.png">
 		    {% endif %}
-			{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}
+			{{ post.author }}<br>
+			{{ post.pubdate|date:"d M Y H:i" }}
 		</div>
-	{{ post.content}}<br>
-	{% if post.image %}
-			<img src="{{ post.image.url }}" class="media">
-		{% endif %}
-		{% if post.video %}
-			<video src="{{ post.video.url }}" class="media" controls="controls"></video><br>
-		{% endif %}
-		{% if post.audio %}
-			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
-		{% endif %}
-		{% if post.file %}
-			<a href='{{ post.file.url }}' target="-blank">{{ post.file.url }}</a><br>
-		{% endif %}
-		<a href="{% url 'news:detail' pk=post.pk %}" >More</a><br>
+		<div class="post-content">
+			{{ post.content}}<br>
+			{% if post.image %}
+				<img src="{{ post.image.url }}" class="media">
+			{% endif %}
+			{% if post.video %}
+				<video src="{{ post.video.url }}" class="media" controls="controls"></video><br>
+			{% endif %}
+			{% if post.audio %}
+				<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
+			{% endif %}
+			{% if post.file %}
+				<a href='{{ post.file.url }}' target="-blank" class="link">{{post.filename}}</a><br>
+			{% endif %}
+			<a href="{% url 'news:detail' pk=post.pk %}" class="link">More</a><br>
+		</div>
 	</div>
 {% endfor %}
 {% endif %}

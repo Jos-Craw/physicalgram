@@ -2,11 +2,11 @@
 
 {% block content %}
 <div>
-	<p class="p">
-		{{ post.author }} <a class="small">{{ post.pubdate|date:"d M Y H:i" }}</a><br>
+	<p>
+		{{ post.author }} <a>{{ post.pubdate|date:"d M Y H:i" }}</a><br>
 		{{ post.content|urlize }}<br>
 		{% if post.image %}
-			<img src="{{ post.image.url }}" class='main-image'>
+			<img src="{{ post.image.url }}">
 		{% endif %}
 		{% if post.video %}
 			<video src="{{ post.video.url }}" width="50%" controls="controls"></video><br>
@@ -15,7 +15,7 @@
 			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
 		{% endif %}
 		{% if post.file %}
-			<a href='{{ post.file.url }}' >{{ post.file.url }}</a><br>
+			<a href='{{ post.file.url }}'target="-blank" class="link">{{ post.filename }}</a><br>
 		{% endif %}
 		<form method="post">
 			{% csrf_token %}

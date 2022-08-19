@@ -3,28 +3,28 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-<div class="login">
+<div>
 	<h2>User Profile {{user.username }}
 	{% if user.avatar %}
-      <img class="avatar" src="{{ user.avatar.url }}" height=100 width=100><br><br>
+      <img class="avatar" src="{{ user.avatar.url }}"><br><br>
     {% else %}
-      <img src="\static\news\user.png" height=100 width=100><br><br>
+      <img src="\static\news\user.png"><br><br>
     {% endif %}
 	</h2>
 	<h3>Hello, {{user.first_name}} {{user.last_name}}</h3>
-	<a href="{% url 'news:add' %}"class="sbtn">Add post</a>
-	<a href="{% url 'news:profile_change' %}"class="sbtn">Edit info</a>
-	<a href="{% url 'news:password_change' %}"class="sbtn">Edit password</a>
-	<a href="{% url 'news:profile_delete' %}"class="sbtn">Delete</a>
+	<a href="{% url 'news:add' %}">Add post</a>
+	<a href="{% url 'news:profile_change' %}">Edit info</a>
+	<a href="{% url 'news:password_change' %}">Edit password</a>
+	<a href="{% url 'news:profile_delete' %}">Delete</a>
 	<h2>Your post</h2>
 </div>
 <div>
 	{% for post in posts %}
-		<p class="p">
+		<p>
 		{{ post.author }} {{ post.pubdate|date:"d M Y H:i" }}<br>
 	{{ post.content}}<br>
 	{% if post.image %}
-			<img src="{{ post.image.url }}" class='sub-image'>
+			<img src="{{ post.image.url }}">
 		{% endif %}
 		{% if post.video %}
 			<video src="{{ post.video.url }}" width="30%" controls="controls"></video><br>
@@ -33,11 +33,11 @@
 			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
 		{% endif %}
 		{% if post.file %}
-			<a href='{{ post.file.url }}' download="">{{ post.file.url }}</a><br>
+			<a href='{{ post.file.url }}' target="-blank">{{ post.file.url }}</a><br>
 		{% endif %}
-		<a href="{% url 'news:detail' pk=post.pk %}" class="sbtn">More</a>
-		<a href="{% url 'news:edit_post' pk=post.pk %}" class="sbtn">Edit</a>
-		<a href="{% url 'news:delete_post' pk=post.pk %}" class="sbtn">Delete</a>
+		<a href="{% url 'news:detail' pk=post.pk %}">More</a>
+		<a href="{% url 'news:edit_post' pk=post.pk %}" >Edit</a>
+		<a href="{% url 'news:delete_post' pk=post.pk %}">Delete</a>
 	   	</p>
 	{% endfor %}        
 </div>
