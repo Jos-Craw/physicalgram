@@ -3,13 +3,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type"
-		content="text/html; charset=utf-8">	
+		content="width=device-width" charset="utf-8">	
 	<link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}">	
 	<title>{% block title %}Physicalgram V3.0{% endblock %}</title>
 </head>
 <body>
 	<header>
-		<a href="{% url 'news:index' %} " class="link">Physicalgram V3.0</a>
+		<a href="{% url 'news:index' %} " class="link"><strong>P</strong>hysical <strong>E</strong>lectronics <strong>G</strong>ram</a>
 	</header>
 		<div class="content">
 			<nav class="nav">
@@ -34,6 +34,7 @@
 				{% block content %}
 				{% endblock %}
 			</section>
+			<div class="test">test area</div>
 		</div>
 </body>
 </html>
