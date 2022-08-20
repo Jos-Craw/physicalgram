@@ -2,7 +2,6 @@
 
 {% block content %}
 <div>
-	<p>
 		{{ post.author }} <a>{{ post.pubdate|date:"d M Y H:i" }}</a><br>
 		{{ post.content|urlize }}<br>
 		{% if post.image %}
@@ -28,6 +27,5 @@
 				{{ comment.content|urlize }}<br>
 			{% endfor %}
 		{% endif %}
-	</p>
 </div>
 {% endblock %}

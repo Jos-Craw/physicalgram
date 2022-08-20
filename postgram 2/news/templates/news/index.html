@@ -6,13 +6,20 @@
 {% for post in posts %}
 	<div class="post">
 		<div class="post-author">
-			{% if post.author.avatar %}
-		      <img class="avatar-small" src="{{ post.author.avatar.url }}">
-		    {% else %}
-		      <img class="avatar-small" src="\static\news\user.png">
-		    {% endif %}
-			{{ post.author }}<br>
-			{{ post.pubdate|date:"d M Y H:i" }}
+			<div class="post-author-a">
+				{% if post.author.avatar %}
+			      <img class="avatar-small" src="{{ post.author.avatar.url }}">
+			    {% else %}
+			      <img class="avatar-small" src="\static\news\user.png">
+			    {% endif %}
+			    <div>
+					{{ post.author }}<br>
+					{{ post.pubdate|date:"d M Y H:i" }}
+				</div>
+			</div>
+			<div class="post-author-b">
+				<a href="{% url 'news:detail' pk=post.pk %}" class="link">⋮</a>
+			</div>
 		</div>
 		<div class="post-content">
 			{{ post.content}}<br>
@@ -26,9 +33,8 @@
 				<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
 			{% endif %}
 			{% if post.file %}
-				<a href='{{ post.file.url }}' target="-blank" class="link">{{post.filename}}</a><br>
+				<a href='{{ post.file.url }}' target="-blank" class="file">{{post.filename}}</a><br>
 			{% endif %}
-			<a href="{% url 'news:detail' pk=post.pk %}" class="link">More</a><br>
 		</div>
 	</div>
 {% endfor %}
