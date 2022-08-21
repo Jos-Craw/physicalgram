@@ -12,10 +12,10 @@
     {% endif %}
 	</h2>
 	<h3>Hello, {{user.first_name}} {{user.last_name}}</h3>
-	<a href="{% url 'news:add' %}">Add post</a>
-	<a href="{% url 'news:profile_change' %}">Edit info</a>
-	<a href="{% url 'news:password_change' %}">Edit password</a>
-	<a href="{% url 'news:profile_delete' %}">Delete</a>
+	<a href="{% url 'news:add' %}"  class="link">Add post</a>
+	<a href="{% url 'news:profile_change' %}"  class="link">Edit info</a>
+	<a href="{% url 'news:password_change' %}"  class="link">Edit password</a>
+	<a href="{% url 'news:profile_delete' %}"  class="link">Delete</a>
 	<h2>Your post</h2>
 </div>
 <div>
@@ -51,8 +51,8 @@
 			{% if post.file %}
 				<a href='{{ post.file.url }}' target="-blank" class="file">{{post.filename}}</a><br>
 			{% endif %}
-			<a href="{% url 'news:edit_post' pk=post.pk %}" >Edit</a>
-			<a href="{% url 'news:delete_post' pk=post.pk %}">Delete</a>
+			<a href="{% url 'news:edit_post' pk=post.pk %}" class="link">Edit</a>
+			<a href="{% url 'news:delete_post' pk=post.pk %}"  class="link">Delete</a>
 		</div>
 	</div>
 {% endfor %}       
