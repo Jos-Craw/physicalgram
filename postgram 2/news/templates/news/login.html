@@ -5,9 +5,9 @@
 {% block title %}Log in{% endblock %}
 
 {% block content %}
-	<h2>Log in</h2>
+<div class="login">
 	{% if user.is_authenticated%}
-	<p>Login already done</p>
+	Login already done
 	{% else %}
 	<form method="post">
 		{% csrf_token %}
@@ -16,4 +16,5 @@
 		{% buttons submit='Log in' %}{% endbuttons %}
 	</form>
 	{% endif %}
+</div>
 {% endblock %}

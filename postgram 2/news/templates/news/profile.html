@@ -3,20 +3,21 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-<div>
-	<h2>User Profile {{user.username }}
+<div class="profile">
+	Profile {{user.username }}
 	{% if user.avatar %}
       <img class="avatar" src="{{ user.avatar.url }}"><br><br>
     {% else %}
-      <img src="\static\news\user.png"><br><br>
+      <img class="avatar" src="\static\news\user.png"><br><br>
     {% endif %}
-	</h2>
-	<h3>Hello, {{user.first_name}} {{user.last_name}}</h3>
-	<a href="{% url 'news:add' %}"  class="link">Add post</a>
-	<a href="{% url 'news:profile_change' %}"  class="link">Edit info</a>
-	<a href="{% url 'news:password_change' %}"  class="link">Edit password</a>
-	<a href="{% url 'news:profile_delete' %}"  class="link">Delete</a>
-	<h2>Your post</h2>
+	Hello, {{user.first_name}} {{user.last_name}}
+	<div>
+		<a href="{% url 'news:add' %}"  class="link">Add post</a>
+		<a href="{% url 'news:profile_change' %}"  class="link">Edit info</a>
+		<a href="{% url 'news:password_change' %}"  class="link">Edit password</a>
+		<a href="{% url 'news:profile_delete' %}"  class="link">Delete</a>
+	</div>
+	Your post
 </div>
 <div>
 	{% for post in posts %}
