@@ -4,7 +4,6 @@ import datetime
 from .models import AdvUser, Post, Comment
 
 
-
 class PostAdmin(admin.ModelAdmin):
     list_display = ('id','content', 'author', 'pubdate','image','file','video','audio')
     list_display_links = ('content',)
@@ -30,3 +29,4 @@ class AdvUserAdmin(admin.ModelAdmin):
     readonly_fields = ('last_login', 'date_joined')
 
 admin.site.register(AdvUser, AdvUserAdmin)
+
