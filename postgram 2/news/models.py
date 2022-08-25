@@ -45,7 +45,7 @@ class Comment(models.Model):
 	class Meta:
 		verbose_name_plural = 'Comments'
 		verbose_name = 'Comment'
-		ordering = ['pubdate']
+		ordering = ['-pubdate']
 
 
 user_registrated = Signal(['instance'])

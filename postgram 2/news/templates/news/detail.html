@@ -1,30 +1,48 @@
 {% extends "layout/basic.html" %}
 
 {% block content %}
-<div>
-		{{ post.author }} <a>{{ post.pubdate|date:"d M Y H:i" }}</a><br>
-		{{ post.content|urlize }}<br>
-		{% if post.image %}
-			<img src="{{ post.image.url }}">
-		{% endif %}
-		{% if post.video %}
-			<video src="{{ post.video.url }}" width="50%" controls="controls"></video><br>
-		{% endif %}
-		{% if post.audio %}
-			<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
-		{% endif %}
-		{% if post.file %}
-			<a href='{{ post.file.url }}'target="-blank" class="file">{{ post.filename }}</a><br>
-		{% endif %}
+<div class="good">
+	<div class="post">
+		<div class="post-author">
+			<div class="post-author-a">
+				{% if post.author.avatar %}
+			      <img class="avatar-small" src="{{ post.author.avatar.url }}">
+			    {% else %}
+			      <img class="avatar-small" src="\static\news\user.png">
+			    {% endif %}
+				<div>
+					{{ post.author }}<br>
+					{{ post.pubdate|date:"d M Y H:i" }}
+				</div>
+			</div>
+		</div>
+		<div class="post-content">
+			{{ post.content}}<br>
+			{% if post.image %}
+				<img src="{{ post.image.url }}" class="media">
+			{% endif %}
+			{% if post.video %}
+				<video src="{{ post.video.url }}" class="media" controls="controls"></video><br>
+			{% endif %}
+			{% if post.audio %}
+				<audio src="{{ post.audio.url }}" controls="controls"></audio><br>
+			{% endif %}
+			{% if post.file %}
+				<a href='{{ post.file.url }}' target="-blank" class="file">{{post.filename}}</a><br>
+			{% endif %}
+		</div>
+	</div>
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
 			<button type="submit">Add comment</button>
-		</form>
+		</form><br>
 		{% if comments %}
 			{% for comment in comments %}
+			<div class="comment">
 				{{ comment.author }} {{ comment.pubdate|date:"d M Y H:i" }}<br>
 				{{ comment.content|urlize }}<br>
+			</div>
 			{% endfor %}
 		{% endif %}
 </div>

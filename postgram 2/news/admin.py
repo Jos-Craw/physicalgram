@@ -15,6 +15,8 @@ admin.site.register(Post, PostAdmin)
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('content', 'author', 'pubdate','post','image','file','video','audio')
+    list_display_links = ('content',)
+    search_fields = ('content', 'author','image','file','video','audio')
     date_hierarchy = 'pubdate'
     fields = ('author','content','post','image','file','video','audio')
 

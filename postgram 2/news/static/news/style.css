@@ -136,14 +136,6 @@ section{
   justify-content: space-between;
   align-items: center;
 }
-.about{
-  margin-bottom: 5px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  background: rgba(150, 150, 150, 0.15);
-  font-size: 80%;
-  padding: 10px 10px 10px;
-}
 .login{
   display: flex;
   justify-content: center;
@@ -155,6 +147,22 @@ section{
   padding: 10px 10px 10px;
   margin-right: 20%;
   margin-left: 20%; 
+}
+input{
+  font-size: 50%;
+}
+button{
+  font-size:100%;
+}
+.comment{
+  margin-bottom: 5px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(150, 150, 150, 0.15);
+  font-size: 80%;
+  padding: 0 0 10px 10px;
+  text-decoration: none;
+  color: #fffcff;
 }
 @media(max-width:900px){
   .content{
