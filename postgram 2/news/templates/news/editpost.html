@@ -2,10 +2,12 @@
 
 {% block title %}Edit post{% endblock %}
 {% block content %}
-<h2>Edit post</h2>
-<form method="post" enctype="multipart/form-data">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">Edit</button>
-</form>
+<div class="good">
+	Edit post
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Edit</button>
+	</form>
+</div>
 {% endblock %}
