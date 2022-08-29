@@ -19,7 +19,7 @@
 		<div class="post-content">
 			{{ post.content}}<br>
 			{% if post.image %}
-				<img src="{{ post.image.url }}" class="media">
+				<a href="{{ post.image.url }}"><img src="{{ post.image.url }}" class="media"></a>
 			{% endif %}
 			{% if post.video %}
 				<video src="{{ post.video.url }}" class="media" controls="controls"></video><br>
